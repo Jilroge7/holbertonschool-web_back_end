@@ -2,11 +2,10 @@
 """
 type-annotated function.
 """
-import math
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """
     which takes n as argument and returns floor of float.
     """
-    return (math.floor(n))
+    return (int(n//1))
