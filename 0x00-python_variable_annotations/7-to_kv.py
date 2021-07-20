@@ -2,7 +2,7 @@
 """
 type-annotated function.
 """
-from typing import List
+from typing import Tuple
 from typing import Union
 
 
