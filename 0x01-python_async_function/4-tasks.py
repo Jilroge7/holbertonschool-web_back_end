@@ -3,6 +3,7 @@
 Learning async/await and asyncio
 """
 import asyncio
+from typing import List
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
