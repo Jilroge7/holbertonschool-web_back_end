@@ -12,6 +12,5 @@ async def async_comprehension() -> List[float]:
     """
     collct 10 num w async comprehensing over async_generator, return rand nums.
     """
-    i: float
     result: List[float] = [i async for in async_generator()]
-    yield result
+    return result
