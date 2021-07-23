@@ -2,7 +2,7 @@
 """
 type-annotated function.
 """
-from typing import Sequence, Tuple, List, Any
+from typing import Sequence, Union, Any
 
 
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
