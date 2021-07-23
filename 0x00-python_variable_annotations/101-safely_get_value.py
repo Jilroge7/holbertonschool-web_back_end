@@ -8,8 +8,8 @@ from typing import Mapping, Union, Any, TypeVar
 def safely_get_value(
             dct: Mapping,
             key: Any,
-            default: Union[T, None] = None
-            ) -> Union[Any, T]:
+            default: Union[TypeVar('T'), None] = None
+            ) -> Union[Any, TypeVar('T')]:
     """
     annotated function that return values with appropriate types
     """
