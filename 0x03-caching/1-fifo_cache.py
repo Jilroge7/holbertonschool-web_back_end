@@ -14,9 +14,10 @@ class FIFOCache(BaseCaching):
         """ puts key in cache """
         if key is not None or item is not None:
             self.cache_data[key] = item
+        else:
+            return
         if len(self.cache_data) > self.MAX_ITEMS:
             print("DISCARD: {}".format(key))
-        
 
     def get(self, key):
         """ Get an item by key
