@@ -12,15 +12,14 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """ puts key in cache """
-        item_list = []
         if key is None or item is None:
             return
         else:
             self.cache_data[key] = item
-        if key not in self.item_list:
-            self.item_list.append(key)
+        if key not in self.cache_data:
+            self.cache_data.append(key)
         if len(self.cache_data) > self.MAX_ITEMS:
-            pop_key = self.item_list.pop(0)
+            pop_key = self.cache_data.pop(0)
             print("DISCARD: {}".format(pop_key))
 
     def get(self, key):
