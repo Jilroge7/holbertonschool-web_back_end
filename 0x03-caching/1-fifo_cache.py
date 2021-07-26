@@ -9,18 +9,18 @@ class FIFOCache(BaseCaching):
     """ child class inherits from basecaching, fifo"""
     def __init__(self):
         super().__init__()
+        cached_list = []
 
     def put(self, key, item):
         """ puts key in cache """
-        if key is None or item is None:
-            return
-        else:
+        if key and item is not None:
             self.cache_data[key] = item
-        if key not in self.cache_data:
-            self.cache_data.append(key)
-        if len(self.cache_data) > self.MAX_ITEMS:
-            pop_key = self.cache_data.pop(0)
-            print("DISCARD: {}".format(pop_key))
+            if key not in self.cached_list:
+                self.cached_list.append(key)
+            if len(self.cache_data) > self.MAX_ITEMS:
+                pop_key = self.cached_list.pop(0)
+                print("DISCARD: {}".format(pop_key))
+                del self.cache_data[pop_key]
 
     def get(self, key):
         """ Get an item by key
