@@ -9,7 +9,7 @@ class FIFOCache(BaseCaching):
     """ child class inherits from basecaching, fifo"""
     def __init__(self):
         super().__init__()
-        cached_list = []
+    cached_list = []
 
     def put(self, key, item):
         """ puts key in cache """
