@@ -17,11 +17,11 @@ class FIFOCache(BaseCaching):
             return
         else:
             self.cache_data[key] = item
-            if key not in self.item_list:
-                self.item_list.append(key)
-            if len(self.cache_data) > self.MAX_ITEMS:
-                pop_key = self.item_list.pop(0)
-                print("DISCARD: {}".format(pop_key))
+        if key not in self.item_list:
+            self.item_list.append(key)
+        if len(self.cache_data) > self.MAX_ITEMS:
+            pop_key = self.item_list.pop(0)
+            print("DISCARD: {}".format(pop_key))
 
     def get(self, key):
         """ Get an item by key
