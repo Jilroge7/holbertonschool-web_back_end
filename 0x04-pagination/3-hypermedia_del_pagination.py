@@ -40,7 +40,7 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-            """
+        """
             return a dictionary with the following key-value pairs:
             index: the current start index of the return page. That is
             the index of the first item in the current page. For
@@ -52,12 +52,12 @@ class Server:
             current page.
             page_size: the current page size
             data: the actual page of the dataset
-            """
-            assert index < len(self.__indexed_dataset)
-            hyper_indict = {}
-            all_data = self.__indexed_dataset
-            hyper_indict['index'] = index
-            hyper_indict['next_index'] = index + page_size
-            hyper_indict['page_size'] = page_size
-            hyper_indict['data'] = all_data
-            return hyper_indict
+        """
+        assert index < len(self.__indexed_dataset)
+        hyper_indict = {}
+        all_data = self.__indexed_dataset
+        hyper_indict['index'] = index
+        hyper_indict['next_index'] = index + page_size
+        hyper_indict['page_size'] = page_size
+        hyper_indict['data'] = all_data
+        return hyper_indict
