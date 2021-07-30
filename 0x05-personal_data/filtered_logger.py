@@ -23,10 +23,9 @@ def filter_datum(fields:
         The function should use a regex to replace occurrences of certain field
         values.
         -filter_datum should be less than 5 lines long and use re.sub to
-        perform the substitution with a single regex.
+        performthe substitution with a single regex.
     """
     for field in fields:
         pattern = field + "=.*[^" + separator + "]"
-        print(pattern)
         log_message = re.sub(pattern, f"{field}={redaction}", message)
     return log_message
