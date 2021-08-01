@@ -7,8 +7,7 @@ import re
 from typing import List
 
 
-def filter_datum(fields:
-                 List[str],
+def filter_datum(fields: List[str],
                  redaction: str,
                  message: str,
                  separator: str) -> str:
@@ -26,6 +25,6 @@ def filter_datum(fields:
         performthe substitution with a single regex.
     """
     for field in fields:
-        pattern = field + "=.*[^" + separator + "]"
-        log_message = re.sub(pattern, f"{field}={redaction}", message)
-    return log_message
+        pattern = field + f'[^{separator}]*'
+        message = re.sub(pattern, f"{field}={redaction}", message)
+    return message
