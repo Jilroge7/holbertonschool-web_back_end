@@ -25,6 +25,6 @@ def filter_datum(fields: List[str],
         performthe substitution with a single regex.
     """
     for field in fields:
-        pattern = field + f'[^{separator}]*'
+        pattern = field + "[^" + separator + "]*"
         message = re.sub(pattern, f"{field}={redaction}", message)
     return message
