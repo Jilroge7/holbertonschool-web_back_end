@@ -5,6 +5,8 @@ Working with logging module and encryption, personal data
 import logging
 import re
 from typing import List
+import os
+import mysql.connector
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
@@ -70,3 +72,27 @@ def get_logger() -> logging.Logger:
     logger.add_handler(console_handler)
 
     return logger
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """
+    connect to a secure holberton database to read a users
+    table. The database is protected by a username and password
+    that are set as environment variables on the server named
+    PERSONAL_DATA_DB_USERNAME (set the default as “root”),
+    PERSONAL_DATA_DB_PASSWORD (set the default as an empty string)
+    and PERSONAL_DATA_DB_HOST (set the default as “localhost”).
+    The database name is stored in PERSONAL_DATA_DB_NAME
+    """
+    user = os.environ["PERSONAL_DATA_DB_USERNAME"]
+    password = os.environ["PERSONAL_DATA_DB_PASSWORD"]
+    host = os.environ["PERSONAL_DATA_DB_HOST"]
+    db = os.environ["PERSONAL_DATA_DB_NAME"]
+
+    get_conn = mysql.connector.connect(
+            user=user,
+            password=password,
+            host=host,
+            database=db
+    )
+    return get_conn
