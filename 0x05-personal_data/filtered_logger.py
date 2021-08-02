@@ -60,9 +60,9 @@ def get_logger() -> logging.Logger:
     and logs up to logging.info, has a streamhandler and
     formatter as redacting formatter.
     """
-    logger = logging.get_logger("user_data")
-    logger.setlevel(logging.INFO)
-    logger.propagate(false)
+    logger = logging.getLogger("user_data")
+    logger.setLevel(logging.INFO)
+    logger.propagate = False
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(RedactingFormatter)
