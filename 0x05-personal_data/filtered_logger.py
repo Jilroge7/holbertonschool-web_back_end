@@ -96,3 +96,17 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
             database=db
     )
     return get_conn
+
+
+if __name__ == 'main':
+    def main():
+        """
+        Main function
+        """
+        db = get_db()
+        cursor = db.cursor()
+        sql_query = "SELECT * FROM users;"
+        cursor.execute(sql_query)
+
+        for row in cursor:
+            logger = get_logger()
