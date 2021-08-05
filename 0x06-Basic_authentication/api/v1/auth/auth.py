@@ -31,7 +31,13 @@ class Auth():
         """
         public method authoration header
         """
-        return (request)
+        if request is None:
+            return (None)
+
+        if 'Authorization' not in request:
+            return (None)
+        else:
+            return (request.key.value())
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
