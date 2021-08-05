@@ -15,8 +15,13 @@ class Auth():
         """
         public method require auth
         """
-        path = False
-        return (path)
+        if path is None or excluded_paths is None or '':
+            return (True)
+
+        if path in excluded_paths:
+            return (False)
+        else:
+            return (True)
 
     def authorization_header(self, request=None) -> str:
         """
