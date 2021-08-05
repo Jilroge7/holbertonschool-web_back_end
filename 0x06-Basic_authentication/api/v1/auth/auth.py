@@ -2,7 +2,7 @@
 """
 Authentication system
 """
-from flask import Flask, request
+from flask import request
 from typing import List, TypeVar
 
 
@@ -15,7 +15,7 @@ class Auth():
         """
         public method require auth
         """
-        if path is None or excluded_paths is None or '':
+        if path is None or excluded_paths is None or excluded_paths == []:
             return (True)
 
         slash = "/"
@@ -29,16 +29,16 @@ class Auth():
 
     def authorization_header(self, request=None) -> str:
         """
-        public method authoration header
+        public method authorization header
         """
-        if request is None:
-            return (None)
+        authorize = 'Authorization'
+        if request is None or request.headers.get(authorize) is None:
+            return None
 
-        if 'Authorization' in request:
-            return request.get('Authorization')
+        return request.headers.get(authorize)
 
     def current_user(self, request=None) -> TypeVar('User'):
         """
         public method current user
         """
-        return (request)
+        return (None)
