@@ -17,6 +17,7 @@ class BasicAuth(Auth):
         """
         if authorization_header is None or type(authorization_header) != str:
             return (None)
-        if authorization_header[0:5] == "Basic ":
-            authorization_header.split(' ')
-            return authorization_header[1]
+        if authorization_header[0:6] != "Basic ":
+            return (None)
+
+        return authorization_header[6:]
