@@ -85,7 +85,7 @@ class BasicAuth(Auth):
             return (None)
         else:
             extract_hdr = self.extract_base64_authorization_header(auth_header)
-            decode_hdr = self.decode_base64_authorization_header(extract_hdr)
+            decod_hdr = self.decode_base64_authorization_header(extract_hdr)
             extrct_usr, passwd = self.extract_user_credentials(decod_hdr)
             user = self.user_object_from_credentials(extrct_usr, passwd)
             return (user)
