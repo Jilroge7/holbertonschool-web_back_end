@@ -22,6 +22,13 @@ class Auth():
         if path[-1] != slash:
             path += slash
 
+        for ex_path in excluded_paths:
+            if ex_path[-1] == '*':
+                ex_path = ex_path[0:-1]
+
+            if ex_path in path:
+                return False
+
         if path in excluded_paths:
             return (False)
         else:
