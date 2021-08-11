@@ -31,7 +31,7 @@ class SessionAuth(Auth):
         """
         get a user id from session id
         """
-        if session_id is None or if type(session_id) != str:
+        if session_id is None or type(session_id) != str:
             return None
 
         return self.user_id_by_session_id.get(session_id)
