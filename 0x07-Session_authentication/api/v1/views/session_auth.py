@@ -32,3 +32,16 @@ def session_auth():
             sesh_name = getenv("SESSION_NAME")
             response.set_cookie(sesh_name, sesh_id)
             return response
+
+
+@app.views.route('/auth_session/logout', methods=['DELETE'],
+                 strict_slashes=False)
+def logout():
+    """
+    logs out of user session
+    """
+    from api.v1.app import auth
+    logout = auth.destroy_session(request)
+    if not logout:
+        abort(404)
+    return jsonify({}), 200
