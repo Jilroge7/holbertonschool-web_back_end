@@ -49,3 +49,12 @@ class Auth():
         public method current user
         """
         return (None)
+
+    def session_cookie(self, request=None):
+        """
+        returns asession cookie
+        """
+        if request is None:
+            return None
+        sesh_name = getenv("SESSION_NAME")
+        return request.cookies.get(sesh_name)
