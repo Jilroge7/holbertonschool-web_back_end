@@ -34,7 +34,7 @@ def before_req():
         '/api/v1/status/',
         '/api/v1/unauthorized/',
         '/api/v1/forbidden/',
-        'ap1/v1/auth_session/login/'
+        'api/v1/auth_session/login/'
     ]
     if auth.require_auth(request.path, path_list) and auth is not None:
         if (auth.authorization_header(request)) is None\
