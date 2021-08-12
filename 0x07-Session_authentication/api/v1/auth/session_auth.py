@@ -51,10 +51,10 @@ class SessionAuth(Auth):
         if request is None:
             return False
         sesh_id = self.session_cookie(request)
-        if sesh_id not in request:
+        if sesh_id is None:
             return False
         if self.user_id_for_session_id(sesh_id) is None:
             return False
-        else:
-            del self.user_id_by_session_id[sesh_id]
-            return True
+        
+        del self.user_id_by_session_id[sesh_id]
+        return True
