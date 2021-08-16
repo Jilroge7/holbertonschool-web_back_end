@@ -58,3 +58,6 @@ class DB:
         Updates a user inthe database
         """
         user = self.find_user_by(id=user_id)
+        session = self._session
+        session[user].update(**kwargs)
+        return user
