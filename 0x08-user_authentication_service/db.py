@@ -34,7 +34,7 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email: str, hashed_password: str) -> User:
+    def DB.add_user(self, email: str, hashed_password: str) -> User:
         """
         creates a new user obj
         """
@@ -42,3 +42,9 @@ class DB:
         self._session.add(user)
         self._session.commit()
         return user
+
+    def DB.find_user_by(self, *kwargs):
+        """
+        find a specific user with the parameters passed
+        """
+        session = self._session
