@@ -50,9 +50,8 @@ class DB:
         """
         finds user by keyword args passed
         """
-        user = User()
         session = self._session
-        return session.query(user).filter_by(**kwargs).one()
+        return session.query(User).filter_by(**kwargs).one()
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """
