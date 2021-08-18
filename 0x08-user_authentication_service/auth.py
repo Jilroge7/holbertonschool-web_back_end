@@ -19,9 +19,10 @@ class Auth:
         """
         register a user instance
         """
-        if self._db.find_user_by(email=email) is not None:
+        try:
+            if self._db.find_user_by(email=email) is not None:
             raise ValueError("User {} already exists".format(email))
-        else:
+        except NoResultFound:
             hashed_password = _hash_password(password)
             user = self._db.add_user(email, hashed_password)
             return user
