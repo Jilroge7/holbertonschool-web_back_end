@@ -5,6 +5,7 @@ Encrypting password module
 import bcrypt
 import sys
 from db import DB
+from user import Base, User
 
 
 class Auth:
