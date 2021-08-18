@@ -6,6 +6,7 @@ import bcrypt
 import sys
 from db import DB
 from user import Base, User
+from sqlalchemy.orm.exc import NoResultFound
 
 
 class Auth:
