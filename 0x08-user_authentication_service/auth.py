@@ -73,8 +73,10 @@ class Auth:
         """
         if user_id is None or type(user_id) != str:
             return None
-        self._db.update_user(user_id, session_id=None)
-        return None
+        try:
+            self._db.update_user(user_id, session_id=None)
+        except NoResultFound:
+            return None
 
 
 def _generate_uuid() -> str:
