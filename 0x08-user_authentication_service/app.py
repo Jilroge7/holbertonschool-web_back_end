@@ -60,10 +60,11 @@ def logout():
     destroy user session and redirect to GET
     """
     sesh_id = request.cookies.get("session_id")
+    if sesh_id is None:
+        abort(403)
     try:
-        user = self._db.get_user_from_session_id(sesh_id)
-        user_id = self._db.get(user.id)
-        self._db.destroy_session(user_id)
+        user = AUTH.get_user_from_session_id(sesh_id)
+        AUTH.destroy_session(user.id)
         return redirect('/')
     except NoResultFound:
         abort(403)
