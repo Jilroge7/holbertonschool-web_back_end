@@ -44,7 +44,7 @@ class Auth:
             return False
 
 
-def _generate_uuid(self) -> str:
+def _generate_uuid() -> str:
     """
     generate a unique user id
     """
