@@ -65,7 +65,7 @@ def logout():
     try:
         user = AUTH.get_user_from_session_id(sesh_id)
         AUTH.destroy_session(user.id)
-        return redirect('/')
+        return redirect(url_for('simple'))
     except NoResultFound:
         abort(403)
 
