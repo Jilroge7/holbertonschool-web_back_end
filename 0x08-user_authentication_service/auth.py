@@ -43,12 +43,13 @@ class Auth:
         except NoResultFound:
             return False
 
-    def _generate_uuid(self) -> str:
-        """
-        generate a unique user id
-        """
-        session_id = str(uuid4())
-        return session_id
+
+def _generate_uuid(self) -> str:
+    """
+    generate a unique user id
+    """
+    session_id = str(uuid4())
+    return session_id
 
 
 def _hash_password(password: str) -> bytes:
