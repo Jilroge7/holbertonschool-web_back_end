@@ -7,6 +7,7 @@ import sys
 from db import DB
 from user import Base, User
 from sqlalchemy.orm.exc import NoResultFound
+from uuid import uuid4
 
 
 class Auth:
@@ -41,6 +42,13 @@ class Auth:
                 return False
         except NoResultFound:
             return False
+
+    def _generate_uuid() -> str:
+        """
+        generate a unique user id
+        """
+        session_id = str(uuid4())
+        return session_id
 
 
 def _hash_password(password: str) -> bytes:
