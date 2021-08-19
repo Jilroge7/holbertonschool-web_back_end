@@ -53,5 +53,21 @@ def login():
         abort(401)
 
 
+@app.route('/sessions', methods=['DELETE'], strict_slashes=False)
+def logout():
+    """
+    DELETE /sessions
+    destroy user session and redirect to GET
+    """
+    sesh_id = request.cookies.get("session_id")
+    try:
+        user = self._db.get_user_from_session_id(sesh_id)
+        user_id = self._db.get(user.id)
+        self._db.destroy_session(user_id)
+        return redirect('/')
+    except NoResultFound:
+        abort(403)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
