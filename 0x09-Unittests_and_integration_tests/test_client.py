@@ -92,7 +92,6 @@ class TestGithubOrgClient(unittest.TestCase):
             cls.get_patcher = patch('requests.get')
             cls.get_patcher.start()
 
-
         @classmethod
         def tearDownClass(cls):
             """
@@ -100,5 +99,14 @@ class TestGithubOrgClient(unittest.TestCase):
             """
             cls.get_patcher.stop()
 
+        def test_public_repo(self):
+            """
+            Incomplete test for client.public_repo
+            """
+            test_instance = GithubOrgClient('test_name')
 
-
+        def test_public_repos_with_license(self):
+            """
+            Incomplete test for public_repos_with_license
+            """
+            test_instance = GithubOrgClient('test_name')
