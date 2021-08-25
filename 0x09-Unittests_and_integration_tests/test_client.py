@@ -26,7 +26,7 @@ class TestGithubOrgClient(unittest.TestCase):
         method for testing client.org
         """
         test_org = GithubOrgClient(org_name)
-        org_url = 'https://api.github.com/orgs' + org_name
+        org_url = 'https://api.github.com/orgs/' + org_name
         self.assertEqual(test_org.org, {'key': 'val'})
         mock_get_json.assert_called_once_with(org_url)
 
