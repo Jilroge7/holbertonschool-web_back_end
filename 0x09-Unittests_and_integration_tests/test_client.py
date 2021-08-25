@@ -4,7 +4,7 @@ playing with parameterize, mock, patch
 on client.py
 """
 import unittest
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 import requests
 import json
@@ -74,3 +74,31 @@ class TestGithubOrgClient(unittest.TestCase):
         test_instance = GithubOrgClient('test_name')
         self.assertEqual(test_instance.has_license(repo, license_key),
                          expected)
+
+    @parameterized_class([
+
+    ])
+    class TestIntegrationGithubOrgClient(unittest.TestCase):
+        """
+        class for integration testing
+        """
+        @classmethod
+        def setUpClass(cls):
+            """
+            setup class will mock the request from
+            GithubOrgClient.public_repos
+            ***starts the test***
+            """
+            cls.get_patcher = patch('requests.get')
+            cls.get_patcher.start()
+
+
+        @classmethod
+        def tearDownClass(cls):
+            """
+            teardown class to stop the patcher
+            """
+            cls.get_patcher.stop()
+
+
+
