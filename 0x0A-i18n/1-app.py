@@ -18,6 +18,7 @@ class Config(object):
     Babel.default_locale = "en"
     Babel.default_timezone = "UTC"
 
+
 app.config.from_object(Config)
 
 
