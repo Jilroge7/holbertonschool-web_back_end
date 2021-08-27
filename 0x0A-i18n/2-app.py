@@ -3,7 +3,7 @@
 Flask set up, basic Babel setup
 """
 from flask import Flask, render_template
-from flask_babel import Babel
+from flask_babel import Babel, request
 
 
 app = Flask(__name__)
@@ -15,7 +15,19 @@ class Config(object):
     config class for flask_babel
     """
     LANGUAGES = ['en', 'fr']
-    app.config['BABEL_DEFAULT_LOCALE', 'BABEL_DEFAULT_TIMEZONE'] = 'en', 'UTC'
+    Babel.default_locale = "en"
+    Babel.default_timezone = "UTC"
+
+
+app.config.from_object(Config)
+
+
+@babel.localeselector
+def get_locale():
+    """
+    get locale from request
+    """
+    return request.accept_languages.best_match(["en", "fr"])
 
 
 @app.route('/')
