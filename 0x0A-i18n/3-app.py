@@ -2,8 +2,8 @@
 """
 Flask set up, basic Babel setup
 """
-from flask import Flask, render_template
-from flask_babel import Babel, request
+from flask import Flask, render_template, request
+from flask_babel import Babel, gettext
 
 
 app = Flask(__name__)
@@ -36,8 +36,9 @@ def index() -> str:
     GET
     Return: Flask app
     """
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
+translate = gettext('home_title', 'home_header')
 
 if __name__ == "__main__":
     host = "0.0.0.0"
