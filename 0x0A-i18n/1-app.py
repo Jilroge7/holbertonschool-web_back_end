@@ -15,8 +15,8 @@ class Config(object):
     config class for flask_babel
     """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    Babel.default_locale = "en"
+    Babel.default_timezone = "UTC"
 
 app.config.from_object(Config)
 

@@ -15,8 +15,8 @@ class Config(object):
     config class for flask_babel
     """
     LANGUAGES = ['en', 'fr']
-    BABEL_DEFAULT_LOCALE = "en"
-    BABEL_DEFAULT_TIMEZONE = "UTC"
+    Babel.default_locale = "en"
+    Babel.default_timezone = "UTC"
 
 
 app.config.from_object(Config)
@@ -38,7 +38,6 @@ def index() -> str:
     """
     return render_template('3-index.html')
 
-translate = gettext('home_title', 'home_header')
 
 if __name__ == "__main__":
     host = "0.0.0.0"
