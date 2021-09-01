@@ -47,8 +47,12 @@ def replay(method: Callable) -> str:
     """
     display history of method argument passed
     """
-    print("{} was called {} times:".format(method.__qualname__,
-          int(cache.get(cache.store.__qualname__))))
+    name = method.__qualname__
+    print("{} was called {} times:".format(name,
+          int(Cache.get(Cache.store.__qualname__))))
+    result_list = Cache._redis.lrange(name, 0, -1)
+    result = zip(result_list)
+    return result
 
 
 class Cache():
