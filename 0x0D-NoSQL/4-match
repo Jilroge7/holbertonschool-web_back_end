@@ -1,2 +1,2 @@
 // Find specific document with item in 'school' collection
-db.school.distinct({name: 'Holberton School'})
+db.school.distinct({'name': 'Holberton School'})
