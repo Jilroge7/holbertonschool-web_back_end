@@ -1,0 +1,2 @@
+// List all documents with 'Holberton' in collection 'school'--using regex
+db.school.find({'name': {'$regex': '^Holberton'}})
