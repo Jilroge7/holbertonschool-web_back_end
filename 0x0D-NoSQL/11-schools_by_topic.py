@@ -8,7 +8,7 @@ def schools_by_topic(mongo_collection, topic):
     """
     return result of search string topic in collection
     """
-    query_topic = {'topic': topic}
+    query_topic = {'topics': topic}
     if mongo_collection:
         return mongo_collection.find(query_topic)
 
