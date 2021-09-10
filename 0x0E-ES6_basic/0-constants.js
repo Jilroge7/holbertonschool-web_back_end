@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /**
- * Displays a string.
+ * Displays a string!.
  * @returns {str} a string
  */
 export function taskFirst () {
