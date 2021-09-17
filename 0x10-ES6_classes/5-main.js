@@ -6,7 +6,7 @@ console.log(b);
 class TestBuilding extends Building {}
 
 try {
-  TestBuilding(200);
+  new TestBuilding(200);
 } catch (err) {
   console.log(err);
 }
