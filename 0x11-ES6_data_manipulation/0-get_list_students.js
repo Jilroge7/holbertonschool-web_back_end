@@ -4,4 +4,3 @@ export default function getListStudents() {
   const student3 = { id: 5, firstName: 'Serena', location: 'San Francisco' };
   return [student1, student2, student3];
 }
-
