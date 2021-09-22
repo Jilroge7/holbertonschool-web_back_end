@@ -3,6 +3,6 @@ export default function getStudentIDsSum(stuArray) {
     return [];
   }
   const reducer = (preValue, currValue) => preValue + currValue;
-  let idSum = stuArray.map((x) => x.id).reduce(reducer);
+  const idSum = stuArray.map((x) => x.id).reduce(reducer);
   return idSum;
 }
