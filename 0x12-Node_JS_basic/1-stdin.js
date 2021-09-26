@@ -2,8 +2,8 @@
 
 console.log('Welcome to Holberton School, what is your name?');
 process.stdin.on('readable', () => {
-  let name;
-  while ((name = process.stdin.read()) !== null) {
+  const name = process.stdin.read();
+  while (name !== null) {
     process.stdout.write(`Your name is: ${name}`);
   }
 });
