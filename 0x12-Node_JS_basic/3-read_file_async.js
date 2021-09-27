@@ -1,6 +1,7 @@
 const fs = require('fs');
 
-const countStudents = (path) => { new Promise((resolve, reject) => {
+const countStudents = (path) => {
+  Promise((resolve, reject) => {
   fs.readFile(path, (err, readAllFile) => {
     if (err) {
       reject(err);
@@ -22,7 +23,7 @@ const countStudents = (path) => { new Promise((resolve, reject) => {
       return student[0];
     });
     console.log(`Number of students in SWE: ${sweField.length}. List: ${sweField.join(', ')}`);
-  })
-  },
-  )};
+});
+},)
+};
 module.exports = countStudents;
