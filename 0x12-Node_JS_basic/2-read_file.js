@@ -4,7 +4,7 @@ function countStudents(path) {
   try {
     const readAllFile = fs.readFileSync(path, 'utf8');
     const lines = readAllFile.split(/\r?\n/);
-    const stuCount = 0;
+    let stuCount = 0;
     lines.forEach((line) => {
     stuCount += 1;
     });
