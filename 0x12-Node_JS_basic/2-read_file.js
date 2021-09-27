@@ -6,16 +6,16 @@ function countStudents(path) {
     const lines = readAllFile.split(/\r?\n/);
     let stuCount = 0;
     lines.forEach((line) => {
-    stuCount += 1;
+      stuCount += 1;
     });
     const listFirstName = lines.map((line) => {
-      line.split(',');
+      const students = line.split(',');
+      return students;
     });
   } catch (err) {
     throw Error('Cannot load the database');
   }
 
-  console.log(listFirstName);
   // const field = fs.readFileSync(path, 'utf8');
   // const fieldNum = fs.readFileSync(path, 'utf8');
   // console.log(`Number of students: ${stuCount}`);
