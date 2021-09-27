@@ -23,7 +23,7 @@ const countStudents = (path) => {
         return student[0];
       });
       console.log(`Number of students in SWE: ${sweField.length}. List: ${sweField.join(', ')}`);
-});
-},);
+    });
+  });
 };
 module.exports = countStudents;
