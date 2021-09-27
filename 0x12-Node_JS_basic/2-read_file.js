@@ -3,22 +3,24 @@ const fs = require('fs');
 function countStudents(path) {
   try {
     const readAllFile = fs.readFileSync(path, 'utf8');
-    const lines = readAllFile.split(/\r?\n/);
-    let stuCount = 0;
-    lines.forEach((line) => {
-      stuCount += 1;
-    });
-    const listFirstName = lines.map((line) => {
-      const students = line.split(',');
-      return students;
-    });
-    console.log(`Number of students: ${stuCount}`);
+    let lines = readAllFile.split(/\r?\n/);
+    lines.shift();
+    lines = lines.filter(line => line !== '');
+
+    console.log(`Number of students: ${lines.length}`);
+    
+    const csField = lines.filter((line) => line.endsWith('CS')).map((line) => {
+      const student = line.split(',');
+      return student[0];
+      });
+    console.log(`Number of students in CS: ${csField.length}. List: ${csField.join(', ')}`);
+    const sweField = lines.filter((line) => line.endsWith('SWE')).map((line) => {
+      const student = line.split(',');
+      return student[0];
+      });
+    console.log(`Number of students in SWE: ${sweField.length}. List: ${sweField.join(', ')}`);
   } catch (err) {
     throw Error('Cannot load the database');
   }
-
-  // const field = fs.readFileSync(path, 'utf8');
-  // const fieldNum = fs.readFileSync(path, 'utf8');
-  // console.log(`Number of students in ${field}: ${fieldNum}. List: ${listFirstN}`)
 }
 module.exports = countStudents;
