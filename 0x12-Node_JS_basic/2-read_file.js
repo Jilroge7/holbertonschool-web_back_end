@@ -8,9 +8,9 @@ function countStudents(path) {
     lines.forEach((line) => {
     stuCount += 1;
     });
-  const listFirstName = lines.map((line) => {
-    line.split(',');
-  });
+    const listFirstName = lines.map((line) => {
+      line.split(',');
+    });
   } catch (err) {
     throw Error('Cannot load the database');
   }
